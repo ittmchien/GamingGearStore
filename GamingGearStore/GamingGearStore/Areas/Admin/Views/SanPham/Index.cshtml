@@ -1,4 +1,5 @@
-﻿@model IEnumerable<GamingGearConnectionString.SanPham>
+﻿@model PagedList.IPagedList<GamingGearConnectionString.SanPham>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -10,7 +11,6 @@
         border-collapse: collapse;
         width: 100%;
         margin: auto;
-
     }
 
         #customers td, #customers th {
@@ -66,6 +66,8 @@
 
 
     </table>
+
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 
 </div>
 

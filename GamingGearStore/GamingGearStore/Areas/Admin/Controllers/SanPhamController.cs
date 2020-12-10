@@ -13,9 +13,10 @@ namespace GamingGearStore.Areas.Admin.Controllers
     public class SanPhamController : Controller
     {
         // GET: Admin/SanPham
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pagesize = 6)
         {
-            return View(ProductBUS.DanhSachSP());
+            var db = ProductBUS.DanhSachSP().ToPagedList(page, pagesize);
+            return View(db);
         }
 
         // GET: Admin/SanPham/Details/5

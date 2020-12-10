@@ -217,8 +217,16 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Assets\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Assets\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Assets\css\nouislider.min.css" />
     <Content Include="Areas\Admin\Assets\css\sb-admin-2.css" />
     <Content Include="Areas\Admin\Assets\css\sb-admin-2.min.css" />
+    <Content Include="Areas\Admin\Assets\css\slick-theme.css" />
+    <Content Include="Areas\Admin\Assets\css\slick.css" />
+    <Content Include="Areas\Admin\Assets\css\style.css" />
+    <Content Include="Areas\Admin\Assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\Assets\fonts\slick.svg" />
     <Content Include="Areas\Admin\Assets\img\Add.png" />
     <Content Include="Areas\Admin\Assets\img\Delete.png" />
     <Content Include="Areas\Admin\Assets\img\Edit.png" />
@@ -229,13 +237,19 @@
     <Content Include="Areas\Admin\Assets\img\undraw_profile_2.svg" />
     <Content Include="Areas\Admin\Assets\img\undraw_profile_3.svg" />
     <Content Include="Areas\Admin\Assets\img\undraw_rocket.svg" />
+    <Content Include="Areas\Admin\Assets\js\bootstrap.min.js" />
     <Content Include="Areas\Admin\Assets\js\demo\chart-area-demo.js" />
     <Content Include="Areas\Admin\Assets\js\demo\chart-bar-demo.js" />
     <Content Include="Areas\Admin\Assets\js\demo\chart-pie-demo.js" />
     <Content Include="Areas\Admin\Assets\js\demo\datatables-demo.js" />
+    <Content Include="Areas\Admin\Assets\js\jquery.min.js" />
+    <Content Include="Areas\Admin\Assets\js\jquery.zoom.min.js" />
+    <Content Include="Areas\Admin\Assets\js\main.js" />
+    <Content Include="Areas\Admin\Assets\js\nouislider.min.js" />
     <Content Include="Areas\Admin\Assets\js\Product\previewFile.js" />
     <Content Include="Areas\Admin\Assets\js\sb-admin-2.js" />
     <Content Include="Areas\Admin\Assets\js\sb-admin-2.min.js" />
+    <Content Include="Areas\Admin\Assets\js\slick.min.js" />
     <Content Include="Areas\Admin\Assets\vendor\bootstrap\js\bootstrap.bundle.js" />
     <Content Include="Areas\Admin\Assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Areas\Admin\Assets\vendor\bootstrap\js\bootstrap.js" />
@@ -2671,6 +2685,14 @@
     <Content Include="Areas\Admin\Views\NSX\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NSX\Create.cshtml" />
     <Content Include="Areas\Admin\Views\NSX\Edit.cshtml" />
+    <Content Include="Areas\Admin\Assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\Assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\Assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Admin\Assets\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Assets\fonts\slick.eot" />
+    <Content Include="Areas\Admin\Assets\fonts\slick.ttf" />
+    <Content Include="Areas\Admin\Assets\fonts\slick.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

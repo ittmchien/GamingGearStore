@@ -15,7 +15,7 @@ namespace GamingGearStore
             createRolesandUsers();
         }
         // In this method we will create default User roles and Admin user for login    
-        private void createRolesandUsers()
+        private void createRolesandUsers() 
         {
             ApplicationDbContext context = new ApplicationDbContext();
 
