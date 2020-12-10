@@ -1,0 +1,72 @@
+﻿@model IEnumerable<GamingGearConnectionString.SanPham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin: auto;
+
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #375DCD;
+            color: white;
+        }
+</style>
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Quản Lý Sản Phẩm</h1>
+    </div>
+    <table id="customers">
+        <tr>
+            <th>Mã Sản Phẩm</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Loại Sản Phẩm</th>
+            <th>Nhà Sản Xuất</th>
+            <th>Hình ảnh</th>
+            <th>Giá</th>
+            <th>Tình trạng</th>
+            <th colspan="2"><a href="@Url.Action("Create","SanPham")"><img src="~/Areas/Admin/Assets/img/Add.png" /></a></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaSP</td>
+                <td>@item.TenSP</td>
+                <td>@item.MaLoaiSP</td>
+                <td>@item.MaNSX</td>
+                <td><img src="~/Assets/img/@item.Hinh1" width="100px" /></td>
+                <td>@item.Gia</td>
+                <td>@item.TinhTrang</td>
+                <td><a href="@Url.Action("Edit","SanPham",new { id=@item.MaSP })"><img src="~/Areas/Admin/Assets/img/Edit.png" /></a></td>
+                <td><a href="@Url.Action("Delete","SanPham",new { id=@item.MaSP })"><img src="~/Areas/Admin/Assets/img/Delete.png" /></a></td>
+            </tr>
+        }
+
+
+    </table>
+
+</div>
+
+

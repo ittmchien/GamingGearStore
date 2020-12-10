@@ -1,0 +1,59 @@
+﻿@model IEnumerable<GamingGearConnectionString.NSX>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+        margin: auto;
+
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #375DCD;
+            color: white;
+        }
+</style>
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Quản Lý Nhà Sản Xuất</h1>
+    </div>
+    <table id="customers">
+        <tr>
+            <th>Nhà Sản Xuất</th>
+            <th>Tình trạng</th>
+            <th><a href="@Url.Action("Create","NSX")"><img src="~/Areas/Admin/Assets/img/Add.png" /></a></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaNSX</td>
+                <td>@item.TinhTrang</td>
+                <td><a href="@Url.Action("Edit","NSX",new { id=@item.MaNSX })"><img src="~/Areas/Admin/Assets/img/Edit.png" /></a></td>
+            </tr>
+        }
+
+
+    </table>
+
+</div>

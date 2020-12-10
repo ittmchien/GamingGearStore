@@ -1,0 +1,121 @@
+﻿@model IEnumerable<GamingGearConnectionString.GioHang>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th class="text-center">Giá</th>
+                        <th class="text-center">Thành tiền</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Count() > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="col-sm-8 col-md-6">
+                                    <div class="media">
+                                        @Html.Partial("_PictureInCart", GamingGearStore.Models.BUS.GamingGearStoreBUS.LoadPicture(item.MaSP.ToString()))
+                                        <div class="media-body">
+                                            <h4 class="media-heading"><a href="@Url.Action("Details","Store", new { id = item.MaSP })">@item.TenSP</a></h4>
+                                            <span>Mã sản phẩm: </span><span>@item.MaSP</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col-sm-1 col-md-1" style="text-align: center">
+                                    @using (Html.BeginForm("Update", "Cart", FormMethod.Post))
+                                    {
+                                        <input type="hidden" name="masp" value="@item.MaSP" />
+                                        <input type="hidden" name="tensp" value="@item.TenSP" />
+                                        <input type="hidden" name="gia" value="@item.Gia" />
+                                        <input type="number" class="form-control" value="@item.SoLuong" name="soluong" min="1" max="1000">
+                                        <button class="btn btn-success">Cập nhật</button>
+
+
+                                    }
+
+                                </td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:#,##0}", @item.Gia)</strong></td>
+                                <td class="col-sm-1 col-md-1 text-center"><strong>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:#,##0}", @item.TongTien)</strong></td>
+                                <td class="col-sm-1 col-md-1">
+                                    <a href="@Url.Action("Delete", "Cart", new {masp=item.MaSP})" class="btn btn-link btn-xs">
+                                        <button type="button" class="btn btn-danger">
+                                            <span class="glyphicon"></span>Xoá
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td><h3>Tổng tiền</h3></td>
+                            <td class="text-right"><h3><strong>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:#,##0}", ViewBag.TongTien) VND</strong></h3></td>
+                        </tr>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>
+                                <a href="@Url.Action("Index", "Home")">
+                                    <button type="button" class="btn btn-default">
+                                        Tiếp tục mua hàng
+                                    </button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Index", "Home")">
+                                    <button type="button" class="btn btn-success">
+                                        Thanh toán
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr><td>Bạn chưa chọn sản phẩm</td></tr>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>   </td>
+                            <td>
+                                <a href="@Url.Action("Index", "Home")">
+                                    <input type="button" class="btn btn-success" value="Tiếp tục mua hàng"/>
+                                    
+                                </a>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    }
+
+
+
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

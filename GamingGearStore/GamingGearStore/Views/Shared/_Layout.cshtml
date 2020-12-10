@@ -1,0 +1,256 @@
+﻿
+@{
+    ViewBag.Title = "_Layout";
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Gaming Gear</title>
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="~/Assets/css/bootstrap.min.css" />
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="~/Assets/css/slick.css" />
+    <link type="text/css" rel="stylesheet" href="~/Assets/css/slick-theme.css" />
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="~/Assets/css/nouislider.min.css" />
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="~/Assets/css/font-awesome.min.css">
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="~/Assets/css/style.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <!-- TOP HEADER -->
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-left">
+                    <li><a href="#"><i class="fa fa-phone"></i> +84989230351</a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i> gaminggear@gmail.com</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker"></i> Đại học Thủ Dầu Một</a></li>
+                </ul>
+                <ul class="header-links pull-right">
+                    <li>@Html.Partial("_LoginPartial")</li>
+                </ul>
+            </div>
+        </div>
+        <!-- /TOP HEADER -->
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a href="@Url.Action("Index","Home")" class="logo">
+                                <img src="~/Assets/img/logo.png" alt="" width="200px">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /LOGO -->
+                    <!-- SEARCH BAR -->
+
+                    <div class="col-md-6">
+                        <div class="header-search">
+                            @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+                            {
+                                @*<select class="input-select">
+                                        <option value="0">Tất cả</option>
+                                        <option value="1">Bộ vi xử lý</option>
+                                        <option value="2">Bo mạch chủ</option>
+                                        <option value="3">Card màn hình</option>
+                                        <option value="4">Bộ nhớ tạm thời</option>
+                                    </select>*@
+                                <input class="input-select" placeholder="Tìm kiếm sản phẩm" name="search">
+                                <button class="search-btn">Tìm</button>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- /SEARCH BAR -->
+                    <!-- ACCOUNT -->
+                    <div class="col-md-3 clearfix">
+                        <div class="header-ctn">
+                            <!-- Wishlist -->
+                            @*<div>
+                                    <a href="#">
+                                        <i class="fa fa-heart-o"></i>
+                                        <span>Sản phẩm đã thích</span>
+                                        <div class="qty">0</div>
+                                    </a>
+                                </div>*@
+                            <!-- /Wishlist -->
+                            <!-- Cart -->
+                            <div class="dropdown">
+                                
+                                <a class="dropdown-toggle" aria-expanded="true" href="@Url.Action("Index","Cart")">
+                                    <i class="fa fa-shopping-cart"></i>
+
+                                    <span>Giỏ hàng</span>
+                                </a>
+
+                            </div>
+                            <!-- /Cart -->
+                            <!-- Menu Toogle -->
+                            <div class="menu-toggle">
+                                <a href="#">
+                                    <i class="fa fa-bars"></i>
+                                    <span>Menu</span>
+                                </a>
+                            </div>
+                            <!-- /Menu Toogle -->
+                        </div>
+                    </div>
+                    <!-- /ACCOUNT -->
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <!-- /HEADER -->
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li><a href="@Url.Action("Index","Home")">Trang chủ</a></li>
+                    <li><a href="@Url.Action("Index","Store")">Tất cả sản phẩm</a></li>
+                    <li><a href="@Url.Action("Index","MAINBOARD")">Bo mạch chủ - MAINBOARD</a></li>
+                    <li><a href="@Url.Action("Index","CPU")">Bộ vi xử lý - CPU</a></li>
+
+                    <li><a href="@Url.Action("Index","GPU")">Card màn hình - GPU</a></li>
+                    <li><a href="@Url.Action("Index","RAM")">Bộ nhớ tạm thời - RAM</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+    @RenderBody()
+    <!-- FOOTER -->
+    <footer id="footer">
+        <!-- top footer -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Về chúng tôi</h3>
+                            <p>Website được phát triển để làm báo cáo môn Lập trình WEB</p>
+                            <ul class="footer-links">
+                                <li><a href="#"><i class="fa fa-map-marker"></i>Đại học Thủ Dầu Một</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i>+84989230351</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>gaminggear@gmail.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Danh mục</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Sản phẩm bán chạy</a></li>
+                                <li><a href="#">Bo mạch chủ - MAINBOARD</a></li>
+                                <li><a href="#">Bộ vi xử lý - CPU</a></li>
+
+                                <li><a href="#">Card màn hình - GPU</a></li>
+                                <li><a href="#">Bộ nhớ tạm thời - RAM</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Thông tin</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Về chúng tôi</a></li>
+                                <li><a href="#">Liên lạc với chúng tôi</a></li>
+                                <li><a href="#">Chính sách bảo mật</a></li>
+                                <li><a href="#">Đặt hàng và Trả hàng</a></li>
+                                <li><a href="#">Điều khoản và Điều kiện</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Dịch vụ</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Tài khoản</a></li>
+                                <li><a href="#">Giỏ hàng</a></li>
+                                <li><a href="#">Sản phẩm đã thích</a></li>
+                                <li><a href="#">Theo dõi đơn đặt hàng</a></li>
+                                <li><a href="#">Hỗ trợ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /top footer -->
+        <!-- bottom footer -->
+        <div id="bottom-footer" class="section">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class="footer-payments">
+                            <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                            <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                        </ul>
+                        <span class="copyright">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </span>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /bottom footer -->
+    </footer>
+    <!-- /FOOTER -->
+    <!-- jQuery Plugins -->
+    <script src="~/Assets/js/jquery.min.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
+    <script src="~/Assets/js/slick.min.js"></script>
+    <script src="~/Assets/js/nouislider.min.js"></script>
+    <script src="~/Assets/js/jquery.zoom.min.js"></script>
+    <script src="~/Assets/js/main.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

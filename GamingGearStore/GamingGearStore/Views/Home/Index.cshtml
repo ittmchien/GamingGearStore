@@ -1,0 +1,10 @@
+﻿@model IEnumerable<GamingGearConnectionString.SanPham>
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_MAINBOARD", GamingGearStore.Models.BUS.GamingGearStoreBUS.MAINBOARD())
+@Html.Partial("_CPU", GamingGearStore.Models.BUS.GamingGearStoreBUS.CPU())
+@Html.Partial("_GPU", GamingGearStore.Models.BUS.GamingGearStoreBUS.GPU())
+@Html.Partial("_RAM", GamingGearStore.Models.BUS.GamingGearStoreBUS.RAM())

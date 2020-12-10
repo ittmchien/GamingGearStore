@@ -1,0 +1,63 @@
+﻿@model GamingGearConnectionString.SanPham
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<script src="~/Areas/Admin/Assets/js/Product/previewFile.js"></script>
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4e73df;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #2E59D9;
+        }
+</style>
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Sửa Thông Tin Sản Phẩm</h1>
+    </div>
+
+    <div>
+        @using (Html.BeginForm("Delete", "SanPham", FormMethod.Post))
+        {
+            <label for="sp">Mã sản phẩm</label>
+            <input type="text" id="sp" name="MaSP" placeholder="Mã sản phẩm" value="@Model.MaSP" readonly required>
+            <br />
+            <label for="tsp">Tên sản phẩm</label>
+            <input type="text" id="tsp" name="TenSP" placeholder="Tên sản phẩm" value="@Model.TenSP" required>
+            <br />
+            <label for="mt">Mô tả</label>
+            <input type="text" id="mt" name="MoTa" placeholder="Mô tả" value="@Model.MoTa" required>
+            <br />
+            <label for="g">Giá</label>
+            <input type="text" id="g" name="Gia" placeholder="Giá" value="@Model.Gia" required>
+            <br />
+            <label for="ct">Chi tiết</label>
+            @*<input type="text" id="ct" name="ChiTiet" placeholder="Chi tiết" value="@Model.ChiTiet" required>*@
+            <textarea class="ckeditor" name="ChiTiet" style="width: 100%; padding: 12px 20px; margin: 8px 0; display: inline - block; border: 1px solid #ccc; border - radius: 4px; box - sizing: border - box; ">@Model.ChiTiet</textarea>
+            <input type="submit" value="Xác nhận xoá sản phẩm">
+        }
+
+    </div>
+
+</div>
+
